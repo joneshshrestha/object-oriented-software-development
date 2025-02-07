@@ -1,0 +1,127 @@
+@startuml
+
+Customer <|-- Corporate
+Reportable <|.. Customer
+Customer "1" o-- "*" RentalOrder
+Customer <|-- Individual
+VehicleType <-- Inventory
+Inventory "1 " o-- " *  " Vehicle
+RentalOffice ..|> Reportable
+RentalOffice "1" o-- "*" Inventory
+RentalOffice "1 " o-- " * " RentalOrder
+'RentalOrder --> Customer
+RentalOrder --> Vehicle
+Vehicle --> VehicleType
+
++class Corporate {
+    -country: String
+    -private taxID: String
+
+    +Corporate(ID: int, name: String, discountRate: double, country: String, taxID: String)
+    +generateReport(): String
+    }
+
++abstract class Customer {
+    -ID: int
+    -name: String
+    -discountRate: double
+
+    +Customer(int ID, String name, double discountRate)
+    +getID(): int
+    +getName(): String
+    +getDiscountRate(): double
+    +getRentalOrder(): ArrayList
+    +addOrder(order: RentalOrder): String
+    +removeOrder(order: RentalOrder): String
+    +getOrderHistory(): ArrayList
+    +{abstract} generateReport(): String
+
+    }
+
++class Individual {
+    -age: int
+    -state: String
+    -zip: String
+
+    +Individual(ID: int, name: String, discountRate: double, age: int, state: String, zip: String)
+    +generateReport(): String
+    }
+
++class Inventory {
+    -inventoryId: int
+    -type: VehicleType
+
+    +Inventory(inventoryId: int, type: VehicleType)
+    +getInventoryId(): int
+    +getType(): VehicleType
+    +getVehicleList(): ArrayList
+    +addVehicle(vehicle: Vehicle): String
+    +removeVehicle(vehicle: Vehicle): String
+}
+
++class RentalOffice {
+    -officeID: int
+    -locationZip: String
+
+    +RentalOffice(officeID: int, locationZip: String)
+    +addInventory(inventory: Inventory): String
+    +removeInventory(inventory: Inventory): String
+    +addOrder(order: RentalOrder): String
+    +generateReport(): String
+}
+
++class RentalOrder {
+    -totalCost: double
+    -customer: Customer
+    -vehicle: Vehicle
+    -rentalLength: int
+
+    +RentalOrder(customer: Customer, vehicle: Vehicle)
+    +RentalOrder(customer: Customer, vehicle: Vehicle, rentalLength: int)
+    +getTotalCost(): double
+    +getCustomer(): Customer
+    +getVehicle(): Vehicle
+    +getRentalLength(): int
+    +calculateTotalCost(): String
+    +completeOrder(): String
+}
+
++class Report {
+    +{static} printToConsole(reportable: Reportable): void
+    +{static} persistToCSV(reportable: Reportable, fileName: String): void
+
+}
+
++class Vehicle {
+    -vehicleId: int
+    -make: String
+    -model: String
+    -year: int
+    -mileage: double
+    -type: VehicleType
+    -available: boolean
+    -dailyRate: double
+
+    +Vehicle(vehicleId: int, make: String, model: String, year: int, mileage: double, type: VehicleType, dailyRate: double)
+    +getVehicleId(): int
+    +getMake(): String
+    +getModel(): String
+    +getYear(): int
+    +getMileage(): double
+    +getType(): VehicleType
+    +getAvailable(): boolean
+    +getDailyRate(): double
+    +setAvailable(available: boolean): void
+}
+
++enum VehicleType {
+    CAR
+    SUV
+    TRUCK
+}
+
++interface Reportable {
+    +generateReport()
+}
+
+@enduml

@@ -1,0 +1,22 @@
+Office ID: 1
+Location Zip: 60604
+Inventory List: 
+ Inventory ID: 1,  Type: CAR
+ Vehicles in this Inventory: 
+    Vehicle ID: 1, Make: Toyota, Model: Camry, Year: 2020, Mileage: 12000.0, Available: false, Daily Rate: 20.0
+    Vehicle ID: 2, Make: Honda, Model: Civic, Year: 2019, Mileage: 10000.0, Available: true, Daily Rate: 15.0
+ Inventory ID: 2,  Type: SUV
+ Vehicles in this Inventory: 
+    Vehicle ID: 3, Make: Ford, Model: Explorer, Year: 2018, Mileage: 15000.0, Available: false, Daily Rate: 25.0
+ Inventory ID: 3,  Type: TRUCK
+ Vehicles in this Inventory: 
+    Vehicle ID: 4, Make: Chevrolet, Model: Silverado, Year: 2017, Mileage: 20000.0, Available: true, Daily Rate: 30.0
+Rental Order History: 
+Customer Detail: 
+  Customer ID: 1, Customer Name: Snoop Dogg, Customer DiscountRate: 10.0
+  Vehicles Rent Detail: 
+    Vehicle ID: 1, Vehicle Type: CAR, Vehicle Make: Toyota, Vehicle Model: Camry, Rental Length: 3 day(s), Total Cost: 54.0
+Customer Detail: 
+  Customer ID: 2, Customer Name: DePaul University., Customer DiscountRate: 15.0
+  Vehicles Rent Detail: 
+    Vehicle ID: 3, Vehicle Type: SUV, Vehicle Make: Ford, Vehicle Model: Explorer, Rental Length: 5 day(s), Total Cost: 106.25
