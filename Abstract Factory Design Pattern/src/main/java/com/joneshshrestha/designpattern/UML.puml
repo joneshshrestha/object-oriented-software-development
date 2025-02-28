@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+GUIFactory <|.down. LinuxFactory
+GUIFactory <|.down. MacFactory
+GUIFactory <|.down. WinFactory
+
+AbstractListBox <|.up. LinuxListBox
+AbstractPushButton <|.up. LinuxPushButton
+AbstractTextField <|.up. LinuxTextField
+
+AbstractListBox <|.up. MacListBox
+AbstractPushButton <|.up. MacPushButton
+AbstractTextField <|.up. MacTextField
+
+AbstractListBox <|.up. WinListBox
+AbstractPushButton <|.up. WinPushButton
+AbstractTextField <|.up. WinTextField
+
+LinuxFactory .down.> LinuxListBox
+LinuxFactory .down.> LinuxPushButton
+LinuxFactory .down.> LinuxTextField
+
+MacFactory .down.> MacListBox
+MacFactory .down.> MacPushButton
+MacFactory .down.> MacTextField
+
+WinFactory .down.> WinListBox
+WinFactory .down.> WinPushButton
+WinFactory .down.> WinTextField
+
++interface GUIFactory {
+    +createTextField(): AbstractTextField
+    +createPushButton(): AbstractPushButton
+    +createListBox(): AbstractListBox
+}
+
++class LinuxFactory {
+    +createTextField(): AbstractTextField
+    +createPushButton(): AbstractPushButton
+    +createListBox(): AbstractListBox
+}
+
++class MacFactory {
+    +createTextField(): AbstractTextField
+    +createPushButton(): AbstractPushButton
+    +createListBox(): AbstractListBox
+}
+
++class WinFactory {
+    +createTextField(): AbstractTextField
+    +createPushButton(): AbstractPushButton
+    +createListBox(): AbstractListBox
+}
+
++interface AbstractListBox {
+    +render(): void
+}
+
++interface AbstractPushButton {
+    +render(): void
+}
+
++interface AbstractTextField {
+    +render(): void
+}
+
++class LinuxListBox {
+    +render(): void
+}
+
++class LinuxPushButton {
+    +render(): void
+}
+
++class LinuxTextField {
+    +render(): void
+}
+
++class MacListBox {
+    +render(): void
+}
+
++class MacPushButton {
+    +render(): void
+}
+
++class MacTextField {
+    +render(): void
+}
+
++class WinListBox{
+    +render(): void
+}
+
++class WinPushButton{
+    +render(): void
+}
+
++class WinTextField{
+    +render(): void
+}
+
+@enduml
