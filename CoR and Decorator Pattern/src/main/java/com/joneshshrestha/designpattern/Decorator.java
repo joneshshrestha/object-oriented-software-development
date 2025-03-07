@@ -1,5 +1,6 @@
 package com.joneshshrestha.designpattern;
 
+
 public abstract class Decorator implements Handler {
     protected Handler handler;
     

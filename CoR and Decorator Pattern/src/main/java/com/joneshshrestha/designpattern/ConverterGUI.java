@@ -71,19 +71,27 @@ public class ConverterGUI {
 				System.out.println("Convert button clicked");
 				// TODO SUMMARY: You get the input from UI, you call the Convert method in the Client class, and you set the output in the UI
 				try {
-					// getText() on inputField
+					// getText() on inputField and store as inputText String
 					String inputText = inputField.getText();
 
-					if (inputText == null) {
+					// check if the inputText is null or if inputText after removing whitespace is still empty
+					if (inputText == null || inputText.trim().isEmpty()) {
+						// display message in the outputField as well as console
 						outputField.setText("Input is null!");
+						System.out.println("Input is null!");
+						// stop execution
 						return;
 					}
 
-					//    parse the input to double
+					// parse the input to double
 					double inputValue = Double.parseDouble(inputText);
 
+					// check if the parsed value of inputText is negative
 					if (inputValue < 0) {
+						// display message in the outputField as well as console
 						outputField.setText("Input is negative!");
+						System.out.println("Input is negative!");
+						// stop execution
 						return;
 					}
 					//    try/catch block to catch any possible error
