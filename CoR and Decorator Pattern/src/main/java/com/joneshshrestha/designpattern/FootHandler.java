@@ -7,7 +7,7 @@ public class FootHandler implements Handler{
     // KM to foot conversion rate which is private static and final of type double
     private static final double KM_FOOT_CONVERSION_RATE = 3280.84;
 
-    // public method setSuccessor that takes in the successor of type Handler as input and assigns to the successor
+    // public method setSuccessor that takes in the successor of type Handler as input and assigns to the class's successor field
     public void setSuccessor(Handler successor) {
         this.successor = successor;
     }

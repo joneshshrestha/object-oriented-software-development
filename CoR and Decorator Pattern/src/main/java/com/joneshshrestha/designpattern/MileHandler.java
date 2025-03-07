@@ -7,7 +7,7 @@ public class MileHandler implements Handler {
     // KM to Mile conversion rate which is private static and final of type double
     private static final double KM_MILE_CONVERSION_RATE = 0.621371;
 
-    // public method setSuccessor that takes in the successor of type Handler as input and assigns to the successor
+    // public method setSuccessor that takes in the successor of type Handler as input and assigns to the class's successor field
     public void setSuccessor(Handler successor) {
         this.successor = successor;
     }
