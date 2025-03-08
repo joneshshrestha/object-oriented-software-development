@@ -1,0 +1,67 @@
+@startuml
+
+MileHandler .u.|> Handler
+YardHandler .u.|> Handler
+FootHandler .u.|> Handler
+
+MileHandler -u-o Handler
+YardHandler -u-o Handler
+FootHandler -u-o Handler
+
+
+Decorator -u-o Handler
+Decorator .u.|> Handler
+RoundDecorator -u-|> Decorator
+ExpDecorator -u-|> Decorator
+UnitDecorator -u-|> Decorator
+
++interface Handler {
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
++class MileHandler {
+    -successor: Handler
+    -{static} KM_MILE_CONVERSION_RATE: double
+
+    +setSuccessor(successor: Handler): void
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
++class YardHandler {
+    -successor: Handler
+    -{static} KM_YARD_CONVERSION_RATE: double
+
+    +setSuccessor(successor: Handler): void
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
++class FootHandler {
+    -successor: Handler
+    -{static} KM_FOOT_CONVERSION_RATE: double
+
+    +setSuccessor(successor: Handler): void
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
++abstract class Decorator {
+    #handler: Handler
+
+    +Decorator(handler: Handler)
+}
+
++class RoundDecorator {
+    +RoundDecorator(handler: Handler)
+    +handleRequest(kilometer: double, targetUnit:String): String
+}
+
++class ExpDecorator {
+    +ExpDecorator(handler: Handler)
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
++class UnitDecorator {
+    +UnitDecorator(handler: Handler)
+    +handleRequest(kilometer: double, targetUnit: String): String
+}
+
+@enduml

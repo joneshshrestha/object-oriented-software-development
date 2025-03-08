@@ -89,8 +89,8 @@ public class ConverterGUI {
 					// check if the parsed value of inputText is negative
 					if (inputValue < 0) {
 						// display message in the outputField as well as console
-						outputField.setText("Input is negative!");
-						System.out.println("Input is negative!");
+						outputField.setText("Please enter positive value!");
+						System.out.println("Please enter positive value!");
 						// stop execution
 						return;
 					}
@@ -104,8 +104,8 @@ public class ConverterGUI {
 					outputField.setText(output);
 
 				} catch (Exception e) {
-					outputField.setText("Invalid Number: " + e.getMessage());
-					System.out.println("Invalid Number! " + e.getMessage());
+					outputField.setText("Please enter a number!");
+					System.out.println("Please enter a number! " + e.getMessage());
 				}
 
 			}

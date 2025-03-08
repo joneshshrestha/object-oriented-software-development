@@ -6,4 +6,3 @@ public interface Handler {
     // Abstract method handleRequest of type String with parameters kilometer as double and targetUnit as String
     String handleRequest(double kilometer, String targetUnit);
 }
-
