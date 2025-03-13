@@ -14,4 +14,4 @@
 
 ### 5. CoR and Decorator Pattern
 
-![UML Diagram](#)
+![UML Diagram](https://github.com/joneshshrestha/object-oriented-software-development/blob/main/CoR%20and%20Decorator%20Pattern/src/main/java/com/joneshshrestha/designpattern/UML.png)
